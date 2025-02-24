@@ -1,8 +1,11 @@
-version: "3.8"
+version: '3.8'
 
-services: 
-  nginx: 
-    build: ./requirements/nginx
-    container_name: nginx 
-    cd ..ports:
-      - 443:443
+services:
+    nginx:
+        build: ./requirements/nginx
+        container_name: nginx
+        # cd ..ports:
+        #   - 443:443
+    mariadb:
+        build: ./requirements/mariadb
+        container_name: mariadb
