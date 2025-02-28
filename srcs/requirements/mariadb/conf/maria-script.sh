@@ -1,13 +1,17 @@
 #!/bin/sh
-echo " --- Setting MariaDB"
+echo "----- Setting MariaDB -----"
 
-service mariadb start
+ if ! pgrep mariadbd > /dev/null; then
+	service mariadb start
+	sleep 5
+
+fi
 
 mariadb -u root -e "
-	CREATE DATABASE IF NOT EXISTS MY_DB;
-	CREATE USER IF NOT EXISTS 'MY_USER'@'%' IDENTIFIED BY 'MY_USER_PASS';
-	GRANT ALL PRIVILEGES ON MY_DB.* TO 'MY_USER'@'%';
-	ALTER USER 'root'@'localhost' IDENTIFIED BY '';
+	CREATE DATABASE IF NOT EXISTS $MY_DB;
+	CREATE USER IF NOT EXISTS '$MY_USER'@'%' IDENTIFIED BY '$MY_USER_PASS';
+	GRANT ALL PRIVILEGES ON $MY_DB.* TO '$MY_USER'@'%';
+	ALTER USER 'root'@'localhost' IDENTIFIED BY '$MY_ROOT_PASS';
 	FLUSH PRIVILEGES;
 	"
 
