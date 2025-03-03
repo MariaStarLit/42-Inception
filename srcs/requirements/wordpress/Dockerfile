@@ -3,6 +3,8 @@ FROM debian:12
 RUN apt-get -y update && apt-get upgrade -y
 RUN apt-get install -y mariadb-client
 
+RUN apt-cache search php-fpm
+
 RUN apt install -y \ 
 curl \
 php \
@@ -20,9 +22,11 @@ php-mbstring \
 php-xml \
 php-zip
 
-COPY ./conf/wordpess-script.sh /wordpess-script.sh
-RUN chmod +x /wordpess-script.sh
+RUN dpkg -l | grep php
 
-ENTRYPOINT ["./wordpess-script.sh"]
+COPY ./conf/wordpress-script.sh /wordpress-script.sh
+RUN chmod +x /wordpress-script.sh
+
+ENTRYPOINT ["./wordpress-script.sh"]
 
 # ENTRYPOINT ["/bin/bash"]
