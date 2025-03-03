@@ -1,5 +1,5 @@
 #!/bin/sh
-echo " --- Wordpress Script"
+echo "--- Wordpress Script ---"
 php -v
 
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -7,14 +7,16 @@ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.pha
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
 
-echo " --- Setting up WP"
+echo "--- Setting up WP ---"
 
 wp core download --allow-root
-wp core config \
-    --dbname=globex \
-    --dbuser=globex \
-    --dbpass='password' \
-    --allow-root
+
+wp core config  --allow-root \
+                --dbname=$MY_DB \
+                --dbuser=$MY_USER \
+                --dbpass=$MY_USER_PASS \
+                --dbhost=mariadb:3306 
+    
 wp core install \
     --skip-email \
     --url=https://globex.turnipjuice.media \
@@ -23,5 +25,3 @@ wp core install \
     --admin_email=abe@turnipjuice.media \
     --admin_password='password' \
     --allow-root
-
-
