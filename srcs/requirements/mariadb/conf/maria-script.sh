@@ -31,7 +31,6 @@ mariadb -u root -e "
 	FLUSH PRIVILEGES;
 	"
 
-#mysqladmin -u root -p$MY_ROOT_PASS shutdown
 mariadb -u root -p -e "SHOW DATABASES;"
 
 wait

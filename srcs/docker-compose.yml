@@ -17,7 +17,7 @@ services:
       - .env
     networks:
       - inception42
-    #restart: always
+    restart: always
 
   wordpress:
     build: ./requirements/wordpress
