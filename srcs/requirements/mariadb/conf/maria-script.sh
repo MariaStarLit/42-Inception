@@ -1,10 +1,5 @@
 #!/bin/sh
 
-#  if ! pgrep mariadbd > /dev/null; then
-# 	service mariadb start
-# 	sleep 5
-# fi
-
 echo "----- Setting MariaDB -----"
 
 mkdir -p /run/mysqld
