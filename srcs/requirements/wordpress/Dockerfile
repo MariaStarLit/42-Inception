@@ -28,5 +28,3 @@ COPY ./conf/wordpress-script.sh /wordpress-script.sh
 RUN chmod +x /wordpress-script.sh
 
 ENTRYPOINT ["./wordpress-script.sh"]
-
-# ENTRYPOINT ["/bin/bash"]

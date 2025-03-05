@@ -35,7 +35,7 @@ chmod -R 755 /var/www/html
 
 # listen port to 9000
 sed -i 's|listen = /run/php/php8.2-fpm.sock|listen = 0.0.0.0:9000|' /etc/php/8.2/fpm/pool.d/www.conf
-service php8.2-fpm restart
+# service php8.2-fpm restart
 
 echo "🚀 WordPress container is running..."
-tail -f /dev/null
+/usr/sbin/php-fpm8.2 -F
