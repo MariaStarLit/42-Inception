@@ -14,6 +14,7 @@ services:
             - wordpress
         volumes:
             - wordpress_data:/var/www/html
+            - nginx_ssl:/etc/nginx/ssl
 
     mariadb:
         build: ./requirements/mariadb
@@ -47,6 +48,7 @@ services:
 volumes:
     wordpress_data:
     mariadb_data:
+    nginx_ssl:
 
 networks:
     inception42:
