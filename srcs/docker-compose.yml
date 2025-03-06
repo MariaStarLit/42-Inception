@@ -22,6 +22,8 @@ services:
             - .env
         networks:
             - inception42
+        volumes:
+            - mariadb_data:/var/www/html
         restart: always
 
     wordpress:

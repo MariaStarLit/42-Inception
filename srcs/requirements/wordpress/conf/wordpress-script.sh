@@ -22,7 +22,7 @@ wp core config  --allow-root \
 
 wp core install --allow-root \
                 --skip-email \
-                --title='Inception' \
+                --title='INCEPTION' \
                 --url=$WP_URL \
                 --admin_user=$WP_ADMIN_USER \
                 --admin_email=$WP_ADMIN_EMAIL \
